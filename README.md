@@ -1,6 +1,6 @@
 # Game Vibe Engine
 
-[![Built with Bolt](https://img.shields.io/badge/Built%20with-Bolt-blue?style=for-the-badge&logo=bolt&logoColor=white)](https://bolt.new/)
+[![Built with Bolt](./bolt.png)](https://bolt.new/)
 
 **Revolutionizing game development through conversational AI - Built for the World's Largest Hackathon 2025**
 
