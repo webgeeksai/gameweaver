@@ -1,0 +1,22 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "out",
+    "incremental": true,
+    "tsBuildInfoFile": "./out/.tsbuildinfo-extension"
+  },
+  "include": [
+    "src/extension.ts",
+    "src/providers/**/*",
+    "src/stubs/**/*",
+    "src/services/**/*",
+    "src/server/**/*",
+    "src/webview/gameEngine.ts",
+    "src/webview/music-editor.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    ".vscode-test",
+    "src/engine/**/*"
+  ]
+}

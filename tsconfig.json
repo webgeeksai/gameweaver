@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES2020",
+    "outDir": "out",
+    "lib": ["ES2020", "DOM"],
+    "sourceMap": true,
+    "rootDir": "src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react"
+  },
+  "exclude": [
+    "node_modules", 
+    ".vscode-test",
+    "src/main.tsx",
+    "src/App.tsx",
+    "src/components/**/*",
+    "src/webview/**/*",
+    "src/behaviors/**/*",
+    "src/gdl/**/*",
+    "src/ai/**/*",
+    "src/services/**/*",
+    "src/export/**/*",
+    "src/core/ai/**/*",
+    "src/systems/BehaviorSystem.ts",
+    "src/systems/GameSystem.ts",
+    "src/core/behavior/**/*",
+    "src/core/particles/**/*",
+    "src/core/scene/**/*",
+    "src/core/index.ts"
+  ],
+  "include": ["src/**/*"]
+}

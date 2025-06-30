@@ -1,0 +1,407 @@
+{
+  "name": "game-vibe-engine",
+  "displayName": "Game Vibe Engine",
+  "description": "Create games through natural language conversations in VS Code",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Other"
+  ],
+  "keywords": [
+    "game",
+    "development",
+    "ai",
+    "natural language",
+    "phaser"
+  ],
+  "publisher": "game-vibe",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/game-vibe-engine"
+  },
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "gameVibe.openEditor",
+        "title": "Game Vibe: Open Game Editor"
+      },
+      {
+        "command": "gameVibe.newGame",
+        "title": "Game Vibe: Create New Game"
+      },
+      {
+        "command": "gameVibe.compileGDL",
+        "title": "Game Vibe: Compile GDL"
+      },
+      {
+        "command": "gameVibe.runGame",
+        "title": "Game Vibe: Run Game"
+      },
+      {
+        "command": "gameVibe.createProject",
+        "title": "Game Vibe: Create Game Project"
+      },
+      {
+        "command": "gameVibe.toggleLogging",
+        "title": "Game Vibe: Toggle Debug Logging"
+      },
+      {
+        "command": "gameVibe.addScene",
+        "title": "Game Vibe: Add New Scene"
+      },
+      {
+        "command": "gameVibe.addEntity",
+        "title": "Game Vibe: Add New Entity"
+      },
+      {
+        "command": "gameVibe.validateProject",
+        "title": "Game Vibe: Validate Project"
+      },
+      {
+        "command": "gameVibe.buildProject",
+        "title": "Game Vibe: Build Project"
+      },
+      {
+        "command": "gameVibe.createAssetFolder",
+        "title": "Game Vibe: Create Asset Folders"
+      },
+      {
+        "command": "gameVibe.importAsset",
+        "title": "Game Vibe: Import Asset"
+      },
+      {
+        "command": "gameVibe.deleteAsset",
+        "title": "Game Vibe: Delete Asset"
+      },
+      {
+        "command": "gameVibe.renameAsset",
+        "title": "Game Vibe: Rename Asset"
+      },
+      {
+        "command": "gameVibe.showAssetUsage",
+        "title": "Game Vibe: Show Asset Usage"
+      },
+      {
+        "command": "gameVibe.optimizeAssets",
+        "title": "Game Vibe: Optimize Assets"
+      },
+      {
+        "command": "gameVibe.debugGDL",
+        "title": "Game Vibe: Debug Current GDL File"
+      },
+      {
+        "command": "gameVibe.showDebugOutput",
+        "title": "Game Vibe: Show Debug Output"
+      },
+      {
+        "command": "gameVibe.clearDebugOutput",
+        "title": "Game Vibe: Clear Debug Output"
+      },
+      {
+        "command": "gameVibe.validateAllGDL",
+        "title": "Game Vibe: Validate All GDL Files"
+      },
+      {
+        "command": "gameVibe.showCompilerAST",
+        "title": "Game Vibe: Show Compiler AST"
+      },
+      {
+        "command": "gameVibe.exportGame",
+        "title": "Game Vibe: Export Game"
+      },
+      {
+        "command": "gameVibe.exportWeb",
+        "title": "Game Vibe: Export for Web"
+      },
+      {
+        "command": "gameVibe.exportElectron",
+        "title": "Game Vibe: Export for Desktop (Electron)"
+      },
+      {
+        "command": "gameVibe.exportStandalone",
+        "title": "Game Vibe: Export Standalone"
+      },
+      {
+        "command": "gameVibe.showExportOutput",
+        "title": "Game Vibe: Show Export Output"
+      },
+      {
+        "command": "gameVibe.createRPGDemo",
+        "title": "Game Vibe: Create RPG Demo"
+      },
+      {
+        "command": "gameVibe.runInBrowser",
+        "title": "Game Vibe: Run Game in Browser"
+      },
+      {
+        "command": "gameVibe.openSpriteEditor",
+        "title": "Game Vibe: Open Sprite Editor"
+      },
+      {
+        "command": "gameVibe.openLevelDesigner",
+        "title": "Game Vibe: Open Level Designer"
+      },
+      {
+        "command": "gameVibe.openMusicEditor",
+        "title": "Game Vibe: Open Music Editor"
+      },
+      {
+        "command": "gameVibe.levelEditorBrowser",
+        "title": "Game Vibe: Level Editor Browser"
+      },
+      {
+        "command": "gameVibe.spriteEditorBrowser",
+        "title": "Game Vibe: Sprite Editor Browser"
+      },
+      {
+        "command": "gameVibe.musicEditorBrowser",
+        "title": "Game Vibe: Music Editor Browser"
+      },
+      {
+        "command": "gameVibe.editGDLInLevelEditor",
+        "title": "Game Vibe: Edit GDL in Level Designer"
+      }
+    ],
+    "languages": [
+      {
+        "id": "gdl",
+        "aliases": [
+          "Game Description Language",
+          "gdl"
+        ],
+        "extensions": [
+          ".gdl"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "gdl",
+        "scopeName": "source.gdl",
+        "path": "./syntaxes/gdl.tmLanguage.json"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "game-vibe",
+          "title": "Game Vibe",
+          "icon": "media/game-vibe-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "game-vibe": [
+        {
+          "id": "gameVibe.aiAssistant",
+          "name": "AI Assistant",
+          "type": "webview"
+        },
+        {
+          "id": "gameVibe.sceneManager",
+          "name": "Scene Manager"
+        },
+        {
+          "id": "gameVibe.assetManager",
+          "name": "Asset Manager"
+        },
+        {
+          "id": "gameVibe.entityInspector",
+          "name": "Entity Inspector"
+        }
+      ]
+    },
+    "customEditors": [
+      {
+        "viewType": "gameVibe.spriteEditor",
+        "displayName": "Sprite Editor",
+        "selector": [
+          {
+            "filenamePattern": "*.sprite"
+          }
+        ],
+        "priority": "default"
+      },
+      {
+        "viewType": "gameVibe.levelDesigner",
+        "displayName": "Level Designer",
+        "selector": [
+          {
+            "filenamePattern": "levels/*.gdl"
+          }
+        ],
+        "priority": "option"
+      },
+      {
+        "viewType": "gameVibe.musicEditor",
+        "displayName": "Music Editor",
+        "selector": [
+          {
+            "filenamePattern": "*.music"
+          },
+          {
+            "filenamePattern": "audio/*.json"
+          }
+        ],
+        "priority": "default"
+      }
+    ],
+    "configuration": {
+      "title": "Game Vibe Engine",
+      "properties": {
+        "gameVibe.aiModel": {
+          "type": "string",
+          "default": "claude",
+          "description": "AI model to use for game generation"
+        },
+        "gameVibe.defaultPhysicsMode": {
+          "type": "string",
+          "enum": [
+            "platformer",
+            "topdown",
+            "kinematic"
+          ],
+          "default": "platformer",
+          "description": "Default physics mode for new games"
+        },
+        "gameVibe.enableDebugMode": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable debug mode for game preview"
+        },
+        "gameVibe.enableLogging": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable detailed logging in game preview console"
+        },
+        "gameVibe.logLevel": {
+          "type": "string",
+          "enum": [
+            "error",
+            "warn",
+            "info",
+            "debug"
+          ],
+          "default": "info",
+          "description": "Set the logging level for game preview"
+        },
+        "gameVibe.elevenLabsApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "ElevenLabs API key for audio generation (stored securely)"
+        }
+      }
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "gameVibe.createAssetFolder",
+          "when": "view == gameVibe.assetManager",
+          "group": "navigation"
+        },
+        {
+          "command": "gameVibe.importAsset",
+          "when": "view == gameVibe.assetManager",
+          "group": "navigation"
+        },
+        {
+          "command": "gameVibe.optimizeAssets",
+          "when": "view == gameVibe.assetManager",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "gameVibe.importAsset",
+          "when": "view == gameVibe.assetManager && viewItem == category",
+          "group": "inline"
+        },
+        {
+          "command": "gameVibe.showAssetUsage",
+          "when": "view == gameVibe.assetManager && viewItem == asset",
+          "group": "inline"
+        },
+        {
+          "command": "gameVibe.renameAsset",
+          "when": "view == gameVibe.assetManager && viewItem == asset",
+          "group": "edit"
+        },
+        {
+          "command": "gameVibe.deleteAsset",
+          "when": "view == gameVibe.assetManager && viewItem == asset",
+          "group": "edit"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "gameVibe.editGDLInLevelEditor",
+          "when": "resourceExtname == .gdl",
+          "group": "gameVibe"
+        }
+      ],
+      "editor/title/context": [
+        {
+          "command": "gameVibe.editGDLInLevelEditor",
+          "when": "resourceExtname == .gdl",
+          "group": "gameVibe"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "npm run compile:engine && npm run compile:extension",
+    "compile:engine": "tsc -p ./tsconfig.engine.json",
+    "compile:extension": "tsc -p ./tsconfig.extension.json",
+    "watch": "concurrently \"npm run watch:engine\" \"npm run watch:extension\"",
+    "watch:engine": "tsc -watch -p ./tsconfig.engine.json",
+    "watch:extension": "tsc -watch -p ./tsconfig.extension.json",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src/**/*.ts",
+    "test": "node ./out/test/runTest.js",
+    "package": "vsce package",
+    "build-webview": "webpack --mode production"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.112",
+    "@types/uuid": "^10.0.0",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.1",
+    "@typescript-eslint/parser": "^6.19.1",
+    "@vscode/test-electron": "^2.3.9",
+    "concurrently": "^9.1.2",
+    "copy-webpack-plugin": "^12.0.2",
+    "css-loader": "^6.9.1",
+    "eslint": "^8.56.0",
+    "html-webpack-plugin": "^5.6.0",
+    "style-loader": "^3.3.4",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@elevenlabs/elevenlabs-js": "^2.4.1",
+    "phaser": "^3.70.0",
+    "uuid": "^9.0.1"
+  },
+  "activationEvents": [
+    "onCommand:gameVibe.openEditor",
+    "onCommand:gameVibe.newGame",
+    "onCommand:gameVibe.createProject",
+    "onCommand:gameVibe.createRPGDemo",
+    "onCommand:gameVibe.compileGDL",
+    "onCommand:gameVibe.runGame",
+    "onLanguage:gdl",
+    "onCustomEditor:gameVibe.spriteEditor",
+    "onCustomEditor:gameVibe.levelDesigner",
+    "onCustomEditor:gameVibe.musicEditor",
+    "onCommand:gameVibe.openMusicEditor",
+    "workspaceContains:**/*.gdl"
+  ]
+}

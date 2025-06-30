@@ -1,0 +1,33 @@
+game RPGDemo {
+    title: "Phaser RPG Reference Demo"
+    width: 800
+    height: 600
+}
+
+scene MainScene {
+    background: "#4a9"
+    
+    // Create a simple player entity for testing
+    entity Player {
+        transform: {
+            x: 400
+            y: 300
+        }
+        sprite: {
+            texture: "misa-front"
+            width: 32
+            height: 48
+        }
+        physics: {
+            mode: "topdown"
+            speed: 160
+        }
+        behavior: PlayerMovementBehavior
+    }
+}
+
+behavior PlayerMovementBehavior {
+    onUpdate: {
+        // Movement will be handled by the browser engine
+    }
+}

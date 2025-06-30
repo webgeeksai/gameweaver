@@ -1,0 +1,212 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "Game Description Language",
+    "patterns": [
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#scene-block"
+        },
+        {
+            "include": "#entity-block"
+        },
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "include": "#numbers"
+        },
+        {
+            "include": "#booleans"
+        },
+        {
+            "include": "#arrays"
+        },
+        {
+            "include": "#behaviors"
+        },
+        {
+            "include": "#properties"
+        },
+        {
+            "include": "#physics-modes"
+        },
+        {
+            "include": "#operators"
+        }
+    ],
+    "repository": {
+        "scene-block": {
+            "name": "meta.scene.gdl",
+            "begin": "\\b(scene)\\s+(\\w+)\\s*\\{",
+            "beginCaptures": {
+                "1": {"name": "keyword.control.scene.gdl"},
+                "2": {"name": "entity.name.scene.gdl"}
+            },
+            "end": "\\}",
+            "patterns": [
+                {"include": "#scene-properties"},
+                {"include": "#comments"},
+                {"include": "#entity-block"}
+            ]
+        },
+        "entity-block": {
+            "name": "meta.entity.gdl",
+            "begin": "\\b(entity)\\s+(\\w+)\\s*\\{",
+            "beginCaptures": {
+                "1": {"name": "keyword.control.entity.gdl"},
+                "2": {"name": "entity.name.entity.gdl"}
+            },
+            "end": "\\}",
+            "patterns": [
+                {"include": "#component-definitions"},
+                {"include": "#comments"}
+            ]
+        },
+        "component-definitions": {
+            "patterns": [
+                {
+                    "name": "meta.component.transform.gdl",
+                    "begin": "\\b(transform)\\s*:",
+                    "beginCaptures": {
+                        "1": {"name": "keyword.other.component.gdl"}
+                    },
+                    "end": "(?=\\w+\\s*:|\\})",
+                    "patterns": [
+                        {"include": "#position-vector"},
+                        {"include": "#numbers"},
+                        {"include": "#comments"}
+                    ]
+                },
+                {
+                    "name": "meta.component.sprite.gdl",
+                    "begin": "\\b(sprite)\\s*:",
+                    "beginCaptures": {
+                        "1": {"name": "keyword.other.component.gdl"}
+                    },
+                    "end": "(?=\\w+\\s*:|\\})",
+                    "patterns": [
+                        {"include": "#strings"},
+                        {"include": "#numbers"},
+                        {"include": "#comments"}
+                    ]
+                },
+                {
+                    "name": "meta.component.physics.gdl",
+                    "begin": "\\b(physics)\\s*:",
+                    "beginCaptures": {
+                        "1": {"name": "keyword.other.component.gdl"}
+                    },
+                    "end": "(?=\\w+\\s*:|\\})",
+                    "patterns": [
+                        {"include": "#physics-modes"},
+                        {"include": "#numbers"},
+                        {"include": "#comments"}
+                    ]
+                },
+                {
+                    "name": "meta.component.behavior.gdl",
+                    "begin": "\\b(behavior)\\s*:",
+                    "beginCaptures": {
+                        "1": {"name": "keyword.other.component.gdl"}
+                    },
+                    "end": "(?=\\w+\\s*:|\\})",
+                    "patterns": [
+                        {"include": "#behaviors"},
+                        {"include": "#comments"}
+                    ]
+                }
+            ]
+        },
+        "scene-properties": {
+            "patterns": [
+                {
+                    "name": "variable.parameter.scene.gdl",
+                    "match": "\\b(size|gravity|background|pixelArt)\\s*:"
+                }
+            ]
+        },
+        "position-vector": {
+            "name": "meta.vector.gdl",
+            "match": "\\[(\\s*-?\\d+(?:\\.\\d+)?\\s*,\\s*-?\\d+(?:\\.\\d+)?\\s*)\\]",
+            "captures": {
+                "1": {"name": "constant.numeric.vector.gdl"}
+            }
+        },
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "keyword.control.gdl",
+                    "match": "\\b(scene|entity|spawn|event|on|when|if|else)\\b"
+                },
+                {
+                    "name": "keyword.other.component.gdl",
+                    "match": "\\b(transform|sprite|physics|collider|behavior|particle|animation|audio|input)\\b"
+                }
+            ]
+        },
+        "strings": {
+            "name": "string.quoted.double.gdl",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.gdl",
+                    "match": "\\\\."
+                }
+            ]
+        },
+        "numbers": {
+            "name": "constant.numeric.gdl",
+            "match": "\\b-?\\d+(\\.\\d+)?\\b"
+        },
+        "booleans": {
+            "name": "constant.language.boolean.gdl",
+            "match": "\\b(true|false)\\b"
+        },
+        "arrays": {
+            "name": "meta.array.gdl",
+            "begin": "\\[",
+            "end": "\\]",
+            "patterns": [
+                {"include": "#numbers"},
+                {"include": "#strings"},
+                {"include": "#booleans"}
+            ]
+        },
+        "comments": {
+            "patterns": [
+                {
+                    "name": "comment.line.double-slash.gdl",
+                    "match": "//.*$"
+                },
+                {
+                    "name": "comment.block.gdl",
+                    "begin": "/\\*",
+                    "end": "\\*/"
+                }
+            ]
+        },
+        "behaviors": {
+            "name": "entity.name.class.behavior.gdl",
+            "match": "\\b(PlatformerMovement|TopDownMovement|FollowBehavior|PatrolBehavior|ChaseBehavior|ClickBehavior|DragBehavior|AnimationBehavior|FadeBehavior|FlashBehavior|BounceBehavior|OrbitBehavior|WanderBehavior)\\b"
+        },
+        "physics-modes": {
+            "name": "constant.language.physics-mode.gdl",
+            "match": "\\b(static|dynamic|kinematic|platformer|topdown)\\b"
+        },
+        "properties": {
+            "name": "variable.parameter.gdl",
+            "match": "\\b(x|y|z|width|height|texture|mode|mass|type|radius|speed|jumpPower|target|points|range|duration|alpha|scale|rotation|color|tint|opacity|visible|active|layer|tag|name|health|damage|score)\\b"
+        },
+        "operators": {
+            "name": "keyword.operator.gdl",
+            "match": "(:|=|\\+|\\-|\\*|\\/|%|\\|\\||&&|!|==|!=|<|>|<=|>=)"
+        }
+    },
+    "scopeName": "source.gdl"
+}

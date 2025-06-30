@@ -1,0 +1,35 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Mario-style Goomba enemy -->
+  <!-- Body -->
+  <ellipse cx="16" cy="20" rx="12" ry="8" fill="#8b4513"/>
+  <ellipse cx="16" cy="19" rx="10" ry="7" fill="#a0522d"/>
+  
+  <!-- Head -->
+  <circle cx="16" cy="12" r="8" fill="#8b4513"/>
+  <circle cx="16" cy="11" r="7" fill="#a0522d"/>
+  
+  <!-- Eyes -->
+  <circle cx="12" cy="10" r="2" fill="black"/>
+  <circle cx="20" cy="10" r="2" fill="black"/>
+  <circle cx="12.5" cy="9.5" r="0.5" fill="white"/>
+  <circle cx="20.5" cy="9.5" r="0.5" fill="white"/>
+  
+  <!-- Eyebrows (angry look) -->
+  <path d="M10 8L14 9" stroke="#654321" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M22 8L18 9" stroke="#654321" stroke-width="1.5" stroke-linecap="round"/>
+  
+  <!-- Mouth -->
+  <path d="M13 14C13 14 15 16 16 16C17 16 19 14 19 14" stroke="#654321" stroke-width="1.5" fill="none"/>
+  
+  <!-- Fangs -->
+  <polygon points="14,15 15,17 16,15" fill="white"/>
+  <polygon points="16,15 17,17 18,15" fill="white"/>
+  
+  <!-- Feet -->
+  <ellipse cx="10" cy="26" rx="4" ry="2" fill="#654321"/>
+  <ellipse cx="22" cy="26" rx="4" ry="2" fill="#654321"/>
+  
+  <!-- Texture lines -->
+  <path d="M8 18C8 18 12 20 16 20C20 20 24 18 24 18" stroke="#654321" stroke-width="1" fill="none"/>
+  <path d="M10 22C10 22 13 23 16 23C19 23 22 22 22 22" stroke="#654321" stroke-width="1" fill="none"/>
+</svg>
